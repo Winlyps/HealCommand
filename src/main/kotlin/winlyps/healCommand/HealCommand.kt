@@ -5,10 +5,13 @@ import org.bukkit.plugin.java.JavaPlugin
 class HealCommand : JavaPlugin() {
 
     override fun onEnable() {
-        // Plugin startup logic
+        // Register the command executor
+        getCommand("heal")?.setExecutor(HealCommandExecutor(this))
+
+        logger.info("HealCommand plugin has been enabled!")
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        logger.info("HealCommand plugin has been disabled!")
     }
 }
